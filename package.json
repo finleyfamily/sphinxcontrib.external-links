@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@itprokyle/cspell-dict": "^1.2.0",
+    "cspell": "^8.6.1",
+    "pyright": "^1.1.352"
+  },
+  "name": "sphinxcontrib.external-links",
+  "version": "0.0.0"
+}
