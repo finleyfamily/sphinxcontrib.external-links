@@ -43,7 +43,7 @@ class ExternalLinkChecker(SphinxPostTransform):
             return
 
         matches = self._external_links.find_value(
-            re.compile(re.escape(ref_node["refuri"]) + r"?(/.*)")
+            re.compile(re.escape(ref_node["refuri"]) + r"?(/)$")
         )
         if not matches:
             return
