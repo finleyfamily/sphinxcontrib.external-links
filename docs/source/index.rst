@@ -14,7 +14,9 @@ Features
 - check documentation for hardcoded links that can be replaced
 - compatible with the Sphinx's ``linkcheck`` builder to check link integrity
 
+
 -------------------------------------------------------------------------------
+
 
 .. toctree::
   :hidden:
