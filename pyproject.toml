@@ -15,6 +15,7 @@ classifiers = [
   "Topic :: Software Development :: Documentation",
 ]
 description = "Sphinx extension for easily adding reusable external links."
+documentation = "https://sphinxcontribexternal-links.readthedocs.io/"
 homepage = "https://github.com/ITProKyle/sphinxcontrib.external-links"
 keywords = [
   "documentation",
