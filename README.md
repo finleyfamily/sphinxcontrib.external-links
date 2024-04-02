@@ -8,7 +8,7 @@ Sphinx extension for easily adding reusable external links.
 - user configurable links
 - check documentation for hardcoded links that can be replaced
 - compatible with the Sphinx's `linkcheck` builder to check link integrity
-- - global [substitutions](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions)
+- global [substitutions](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions)
 
 ## Usage
 
