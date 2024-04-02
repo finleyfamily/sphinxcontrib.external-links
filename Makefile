@@ -95,9 +95,8 @@ spellcheck: ## run cspell
 		--show-context
 
 test:  ## run integration and unit tests
-	@echo "Running integration & unit tests..."
-	# @poetry run pytest $(PYTEST_REPORT_OPTS) \
-	# 	--cov sphinxcontrib.external_links \
-	# 	--cov-report term-missing:skip-covered \
-	# 	--dist worksteal \
-	# 	--numprocesses logical
+	@poetry run pytest $(PYTEST_REPORT_OPTS) \
+		--cov sphinxcontrib.external_links \
+		--cov-report term-missing:skip-covered \
+		--dist worksteal \
+		--numprocesses logical

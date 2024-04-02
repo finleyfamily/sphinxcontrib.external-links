@@ -46,7 +46,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
     "sphinx_design",
-    "sphinxcontrib.apidoc",
+    "sphinxcontrib.external_links",
     "sphinxcontrib.jquery",
     "sphinxcontrib_trio",
 ]
@@ -150,11 +150,5 @@ napoleon_use_rtype = True
 todo_include_todos = True
 
 
-# -- Options for sphinxcontrib.apidoc  ---------------------------------------
-# https://github.com/sphinx-contrib/apidoc
-apidoc_extra_args = [f"--templatedir={SRC_DIR / '_templates/apidocs'}"]
-apidoc_module_dir = "../../"
-apidoc_module_first = True
-apidoc_output_dir = "apidocs"
-apidoc_separate_modules = True
-apidoc_toc_file = "index"
+# -- Options for sphinxcontrib.external_links  --------------------------------
+external_links = {}
