@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 
 from . import constants, type_defs
 from ._roles import links_role
+from ._transforms import ExternalLinkChecker
 
 if TYPE_CHECKING:
     from sphinx.application import Sphinx
@@ -28,6 +29,7 @@ def setup(app: Sphinx) -> type_defs.ExtensionMetadata:
     app.add_config_value("external_links", default={}, rebuild="env")
     app.add_config_value("external_links_detect_hardcoded_links", default=True, rebuild="env")
     app.connect("builder-inited", setup_roles)
+    app.add_post_transform(ExternalLinkChecker)
     return {"version": __version__, "parallel_read_safe": True}
 
 

@@ -2,11 +2,13 @@
 sphinxcontrib.external-links
 ############################
 
-A library of useful functions and classes for python projects.
+Sphinx extension for easily adding reusable external links.
+
+-------------------------------------------------------------------------------
 
 .. toctree::
   :hidden:
   :maxdepth: 2
-  :caption: Developers Guide
 
-  apidocs/index
+  configuration
+  usage

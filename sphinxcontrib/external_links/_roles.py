@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 
 
 @functools.cache
-def _find_uri(links: CaseInsensitiveMapping[str], target: str) -> str:
+def _find_uri(links: CaseInsensitiveMapping, target: str) -> str:
     """Find URI with caching."""
     return links[target]
 

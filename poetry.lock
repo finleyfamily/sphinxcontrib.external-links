@@ -1100,21 +1100,6 @@ theme-rtd = ["sphinx-rtd-theme (>=1.0,<2.0)"]
 theme-sbt = ["sphinx-book-theme (>=1.0,<2.0)"]
 
 [[package]]
-name = "sphinxcontrib-apidoc"
-version = "0.5.0"
-description = "A Sphinx extension for running 'sphinx-apidoc' on each build"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "sphinxcontrib-apidoc-0.5.0.tar.gz", hash = "sha256:65efcd92212a5f823715fb95ee098b458a6bb09a5ee617d9ed3dead97177cd55"},
-    {file = "sphinxcontrib_apidoc-0.5.0-py3-none-any.whl", hash = "sha256:c671d644d6dc468be91b813dcddf74d87893bff74fe8f1b8b01b69408f0fb776"},
-]
-
-[package.dependencies]
-pbr = "*"
-Sphinx = ">=5.0.0"
-
-[[package]]
 name = "sphinxcontrib-applehelp"
 version = "1.0.8"
 description = "sphinxcontrib-applehelp is a Sphinx extension which outputs Apple help books"
@@ -1361,4 +1346,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "25c08ba5b038bbd844d0317b0adfb803cd7f593133224673ed608bed9ed9eb16"
+content-hash = "b2e1494810185afd1c5fb6adbdf58d37d7c94883c64d3b4567baa4e2efba2040"

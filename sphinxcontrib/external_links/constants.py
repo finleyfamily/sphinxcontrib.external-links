@@ -8,5 +8,7 @@ if TYPE_CHECKING:
     from collections.abc import Mapping
 
 
-COMMON_LINKS: Mapping[str, str] = {}
+COMMON_LINKS: Mapping[str, str] = {
+    "Google": "https://google.com",
+}
 """Mapping of common links."""
