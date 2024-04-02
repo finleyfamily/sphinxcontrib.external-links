@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import re
+from typing import TYPE_CHECKING
 
-from docutils.nodes import reference
+from docutils.nodes import paragraph, reference, substitution_reference
+from docutils.utils import new_document
+from sphinx.transforms import SphinxTransform
 from sphinx.transforms.post_transforms import SphinxPostTransform
 from sphinx.util import logging
+from sphinx.util.docutils import LoggingReporter
 
 from ._case_insensitive_mapping import CaseInsensitiveMapping
 from .constants import COMMON_LINKS
+
+if TYPE_CHECKING:
+    from docutils.nodes import Node, document
 
 LOGGER = logging.getLogger(__name__)
 
@@ -66,3 +73,34 @@ class ExternalLinkChecker(SphinxPostTransform):
             else:
                 rv.append(f":link:`{title} <{k}>`")
         return rv
+
+
+class GlobalSubstitutions(SphinxTransform):
+    """Transform for global substitutions."""
+
+    default_priority = 211
+
+    def __init__(self, document: document, startnode: Node | None = None) -> None:
+        super().__init__(document, startnode)
+        self.parser = self.app.registry.create_source_parser(self.app, "rst")
+
+    def apply(self) -> None:
+        """Apply substitutions."""
+        settings, source = self.document.settings, self.document["source"]
+        subs = self.document.settings.env.config.external_links_substitutions
+        to_handle = set(subs.keys()) - set(self.document.substitution_defs)
+
+        for ref in self.document.findall(substitution_reference):
+            refname = ref["refname"]
+            if refname in to_handle:
+                text = subs[refname]
+
+                doc = new_document(source, settings)
+                doc.reporter = LoggingReporter.from_reporter(doc.reporter)
+                self.parser.parse(text, doc)
+
+                substitution = doc.next_node()
+                # Remove encapsulating paragraph
+                if isinstance(substitution, paragraph):
+                    substitution = substitution.next_node()
+                ref.replace_self(substitution)

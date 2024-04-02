@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 import pytest
 
@@ -72,3 +72,13 @@ def test_hardcoded_urls_emit_warnings(app: SphinxTestApp, warning: StringIO) -> 
         )
         in warning_output
     )
+
+
+@pytest.mark.sphinx("html", testroot="substitutions")
+def test_substitutions(app: SphinxTestApp) -> None:
+    """Test substitutions."""
+    app.build()
+    result: Any = app.env.get_doctree("index")[0].children[0]
+    assert result["refdomain"] == "py"
+    assert result["reftype"] == "class"
+    assert result["reftarget"] == "dict"

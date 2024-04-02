@@ -151,4 +151,6 @@ todo_include_todos = True
 
 
 # -- Options for sphinxcontrib.external_links  --------------------------------
-external_links = {}
+external_links = {
+    "substitutions": "https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions",
+}
