@@ -3,6 +3,7 @@ name = "sphinxcontrib.external-links"
 version = "0.0.0"
 authors = ["Kyle Finley <kyle@finley.sh>"]
 classifiers = [
+  # https://pypi.org/classifiers/
   "Framework :: Sphinx :: Extension",
   "Intended Audience :: Developers",
   "Natural Language :: English",
@@ -53,6 +54,7 @@ pytest-cov = "^5.0.0"
 pytest-mock = "^3.14.0"
 pytest-sugar = ">=1.0.0"
 pytest-xdist = {extras = ["psutil"], version = "^3.6.0"}
+sphinx = {extras = ["test"], version = "^7.2.6"}
 
 [tool.poetry.urls]
 bugs = "https://github.com/ITProKyle/sphinxcontrib.external-links/issues"
