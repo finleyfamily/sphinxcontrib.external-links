@@ -45,7 +45,7 @@ sphinxcontrib-jquery = "^4.1"
 sphinxcontrib-trio = "^1.1.2"
 
 [tool.poetry.group.lint.dependencies]
-black = "^24.4.0"
+black = "^24.4.1"
 ruff = "^0.4.1"
 
 [tool.poetry.group.test.dependencies]
