@@ -9,31 +9,14 @@ env:
   DEFAULT_PYTHON_VERSION: 3.12
 
 jobs:
-  build-pypi:
-    name: Build PyPi 📦
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo (complete)
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: ITProKyle/action-setup-python@v1.0.0
-        with:
-          poetry-install: false
-          python-version: ${{ env.DEFAULT_PYTHON_VERSION }}
-      - name: Install Poetry Plugins
-        run: poetry self add "poetry-dynamic-versioning[plugin]"
-      - name: Run Build
-        run: make build
-      - name: Upload Distribution Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: pypi-dist
-          path: dist
+  python-build:
+    uses: finleyfamily/workflows/.github/workflows/python.build.yml@master
+    with:
+      poetry-plugins: poetry-dynamic-versioning[plugin]
   publish-pypi:
-    name: Publish 📦 To PyPI
+    name: ⤴️ Publish 📦 To PyPI
     needs:
-      - build-pypi
+      - python-build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo (complete)
@@ -48,6 +31,7 @@ jobs:
       - uses: ITProKyle/action-setup-python@v1.0.0
         with:
           poetry-install: false
+          poetry-plugins: poetry-dynamic-versioning[plugin]
           python-version: ${{ env.DEFAULT_PYTHON_VERSION }}
       - name: Install Poetry Plugins
         run: poetry self add "poetry-dynamic-versioning[plugin]"

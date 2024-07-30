@@ -10,74 +10,23 @@ defaults:
   run:
     shell: bash
 
-env:
-  DEFAULT_PYTHON_VERSION: 3.12
-  NODE_VERSION: '20'
-  PYTEST_ADDOPTS: --color=yes
-
 jobs:
-  lint-python:
-    name: Lint Python
+  python-checks:
     strategy:
       matrix:
         python-version: [3.9, '3.10', 3.11, 3.12]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - uses: ITProKyle/action-setup-python@v1.0.0
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install Node Dependencies
-        run: npm ci
-      - name: Run Linters
-        run: make lint
-  test-python:
-    name: Python tests
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.9, '3.10', 3.11, 3.12]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ITProKyle/action-setup-python@v1.0.0
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Run tests
-        run: make test
-  build-pypi:
-    name: Build PyPi 📦
+    uses: finleyfamily/workflows/.github/workflows/python.checks.yml@master
+    with:
+      node-version: '20'
+      poetry-plugins: poetry-dynamic-versioning[plugin]
+      python-version: ${{ matrix.python-version }}
+  python-build:
     needs:
-      - lint-python
-      - test-python
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo (complete)
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: ITProKyle/action-setup-python@v1.0.0
-        with:
-          python-version: ${{ env.DEFAULT_PYTHON_VERSION }}
-      - name: Install Poetry Plugins
-        run: poetry self add "poetry-dynamic-versioning[plugin]"
-      - name: Run Build
-        run: make build
-      - name: Upload Distribution Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: pypi-dist
-          path: dist
+      - python-checks
+    uses: finleyfamily/workflows/.github/workflows/python.build.yml@master
+    with:
+      poetry-plugins: poetry-dynamic-versioning[plugin]
   spellcheck:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - run: make setup-npm
-      - run: make spellcheck
+    uses: finleyfamily/workflows/.github/workflows/spellcheck.yml@master
+    with:
+      node-version: '20'

@@ -30,7 +30,7 @@ repository = "https://github.com/ITProKyle/sphinxcontrib.external-links"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-sphinx = "^7.2.6"
+sphinx = ">=7.2,<9"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.8.0"
@@ -54,7 +54,7 @@ pytest-cov = "^5.0.0"
 pytest-mock = "^3.14.0"
 pytest-sugar = ">=1.0.0"
 pytest-xdist = {extras = ["psutil"], version = "^3.6.0"}
-sphinx = {extras = ["test"], version = "^7.4.7"}
+sphinx = {extras = ["test"], version = ">=7.2,<9"}
 
 [tool.poetry.urls]
 bugs = "https://github.com/ITProKyle/sphinxcontrib.external-links/issues"
@@ -174,7 +174,6 @@ ignore = [
   "TD003",  # Missing issue link on the line following this TODO
   "TID252",  # Relative imports from parent modules are banned
 ]
-ignore-init-module-imports = true
 select = ["ALL"]
 
 [tool.ruff.lint.extend-per-file-ignores]  # https://docs.astral.sh/ruff/settings/#lintextend-per-file-ignores
