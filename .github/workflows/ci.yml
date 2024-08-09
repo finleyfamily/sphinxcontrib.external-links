@@ -1,4 +1,4 @@
-name: default
+name: CI
 
 on:
   pull_request:  # any pull request
@@ -30,3 +30,26 @@ jobs:
     uses: finleyfamily/workflows/.github/workflows/spellcheck.yml@master
     with:
       node-version: '20'
+  publish-test-pypi:
+    name: 🚀 Publish 📦 To Test PyPI
+    if: github.event_name == 'push' && github.ref_name == 'master'
+    needs:
+      - python-checks
+      - python-build
+      - spellcheck
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/project/sphinxcontrib.external-links
+    permissions:
+      id-token: write
+    steps:
+      - name: ⤵️ Download distribution artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: pypi-dist
+          path: dist
+      - name: 🚀 Publish 📦 to Test PyPI
+        uses: pypa/gh-action-pypi-publish@v1.9.0
+        with:
+          repository-url: https://test.pypi.org/legacy/

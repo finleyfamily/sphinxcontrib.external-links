@@ -17,7 +17,7 @@ classifiers = [
 ]
 description = "Sphinx extension for easily adding reusable external links."
 documentation = "https://sphinxcontribexternal-links.readthedocs.io/"
-homepage = "https://github.com/ITProKyle/sphinxcontrib.external-links"
+homepage = "https://github.com/finleyfamily/sphinxcontrib.external-links"
 keywords = [
   "documentation",
   "extension",
@@ -26,7 +26,7 @@ keywords = [
 license = "Apache-2.0"
 packages = [{include = "sphinxcontrib"}]
 readme = "README.md"
-repository = "https://github.com/ITProKyle/sphinxcontrib.external-links"
+repository = "https://github.com/finleyfamily/sphinxcontrib.external-links"
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -57,9 +57,9 @@ pytest-xdist = {extras = ["psutil"], version = "^3.6.0"}
 sphinx = {extras = ["test"], version = ">=7.2,<9"}
 
 [tool.poetry.urls]
-bugs = "https://github.com/ITProKyle/sphinxcontrib.external-links/issues"
-changelog = "https://github.com/ITProKyle/sphinxcontrib.external-links/releases"
-issues = "https://github.com/ITProKyle/sphinxcontrib.external-links/issues"
+bugs = "https://github.com/finleyfamily/sphinxcontrib.external-links/issues"
+changelog = "https://github.com/finleyfamily/sphinxcontrib.external-links/releases"
+issues = "https://github.com/finleyfamily/sphinxcontrib.external-links/issues"
 
 [tool.black]
 force-exclude = '''

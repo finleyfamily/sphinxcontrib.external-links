@@ -1,13 +1,8 @@
 {
-    "allowCompoundWords": true,
     "import": [
         "@itprokyle/cspell-dict/cspell-ext.json"
     ],
     "maxNumberOfProblems": 100,
     "version": "0.2",
-    "words": [
-        "astext",
-        "linenodiv",
-        "psutil"
-    ]
+    "words": []
 }

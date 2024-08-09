@@ -1,7 +1,8 @@
 # sphinxcontrib.external-links
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
-[![renovate](https://img.shields.io/badge/enabled-brightgreen?logo=renovatebot&logoColor=%2373afae&label=renovate)](https://developer.mend.io/)
+[![renovate](https://img.shields.io/badge/enabled-brightgreen?logo=renovatebot&logoColor=%2373afae&label=renovate)](https://developer.mend.io/github/finleyfamily/sphinxcontrib.external-links)
+[![pypi](https://img.shields.io/pypi/v/sphinxcontrib.external-links?style=flat)](https://pypi.org/project/sphinxcontrib.external-links/)
 
 Sphinx extension for easily adding reusable external links.
 
