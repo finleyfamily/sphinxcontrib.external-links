@@ -17,19 +17,13 @@ jobs:
         python-version: [3.9, '3.10', 3.11, 3.12]
     uses: finleyfamily/workflows/.github/workflows/python.checks.yml@master
     with:
-      node-version: '20'
-      poetry-plugins: poetry-dynamic-versioning[plugin]
       python-version: ${{ matrix.python-version }}
   python-build:
     needs:
       - python-checks
     uses: finleyfamily/workflows/.github/workflows/python.build.yml@master
-    with:
-      poetry-plugins: poetry-dynamic-versioning[plugin]
   spellcheck:
     uses: finleyfamily/workflows/.github/workflows/spellcheck.yml@master
-    with:
-      node-version: '20'
   publish-test-pypi:
     name: 🚀 Publish 📦 To Test PyPI
     if: github.event_name == 'push' && github.ref_name == 'master'

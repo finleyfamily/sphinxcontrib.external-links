@@ -11,8 +11,6 @@ env:
 jobs:
   python-build:
     uses: finleyfamily/workflows/.github/workflows/python.build.yml@master
-    with:
-      poetry-plugins: poetry-dynamic-versioning[plugin]
   publish-test-pypi:
     name: 🚀 Publish 📦 To PyPI
     if: github.event_name == 'push' && github.ref_name == 'master'
