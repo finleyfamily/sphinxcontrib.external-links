@@ -73,11 +73,7 @@ setup-npm: ## install node dependencies with npm
 	@npm ci
 
 setup-poetry: ## setup python virtual environment
-	@if [[ -d .venv ]]; then \
-		poetry run python -m pip --version >/dev/null 2>&1 || rm -rf ./.venv/* ./.venv/.*; \
-	fi
-	@poetry check
-	@poetry install $(POETRY_OPTS) --sync
+	@poetry sync --ansi $(POETRY_OPTS)
 
 setup-pre-commit: ## install pre-commit git hooks
 	@poetry run pre-commit install
