@@ -71,7 +71,7 @@ html_css_files = [
 ]  # files relative to html_static_path
 html_js_files = ["js/custom.js"]
 html_theme = "furo"  # theme to use for HTML and HTML Help pages
-html_theme_options = {
+html_theme_options: dict[str, bool | dict[str, str] | list[str] | str] = {
     "dark_css_variables": {
         "font-stack--monospace": "Inconsolata, monospace",
         "color-inline-code-background": "#24242d",
@@ -79,7 +79,7 @@ html_theme_options = {
     "light_css_variables": {
         "font-stack--monospace": "Inconsolata, monospace",
     },
-    "top_of_page_button": None,
+    "top_of_page_buttons": [],
 }
 html_title = f"{project} v{version}"
 html_show_copyright = True
