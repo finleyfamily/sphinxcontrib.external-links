@@ -30,7 +30,7 @@ license = {text = "Apache-2.0"}
 maintainers = [
   {email = "kyle@finley.sh", name = "Kyle Finley"},
 ]
-requires-python = ">=3.9, <4"
+requires-python = ">=3.13.3, <4"
 
 [project.urls]  # https://packaging.python.org/en/latest/specifications/well-known-project-urls/#well-known-labels
 changelog = "https://github.com/finleyfamily/sphinxcontrib.external-links/releases"
