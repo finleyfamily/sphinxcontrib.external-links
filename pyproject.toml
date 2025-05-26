@@ -62,7 +62,7 @@ ruff = "^0.11.11"
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.5"
 pytest-cov = "^6.1.1"
-pytest-mock = "^3.14.0"
+pytest-mock = "^3.14.1"
 pytest-sugar = ">=1.0.0"
 pytest-xdist = {extras = ["psutil"], version = "^3.6.0"}
 sphinx = {extras = ["test"], version = ">=7.2,<9"}
