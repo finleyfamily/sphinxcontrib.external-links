@@ -3,24 +3,11 @@ name = "sphinxcontrib.external-links"
 authors = [
   {email = "kyle@finley.sh", name = "Kyle Finley"},
 ]
-classifiers = [
-  # https://pypi.org/classifiers/
-  "Framework :: Sphinx :: Extension",
-  "Intended Audience :: Developers",
-  "Natural Language :: English",
-  "Operating System :: OS Independent",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3.9",
-  "Topic :: Documentation :: Sphinx",
-  "Topic :: Software Development :: Documentation",
-]
 dependencies = [
   "sphinx (>=7.2, <9)",
 ]
 description = "Sphinx extension for easily adding reusable external links."
-dynamic = ["version"]
+dynamic = ["classifiers", "version"]
 keywords = [
   "documentation",
   "extension",
@@ -40,6 +27,15 @@ issues = "https://github.com/finleyfamily/sphinxcontrib.external-links/issues"
 source = "https://github.com/finleyfamily/sphinxcontrib.external-links"
 
 [tool.poetry]
+classifiers = [
+  # https://pypi.org/classifiers/
+  "Framework :: Sphinx :: Extension",
+  "Intended Audience :: Developers",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Topic :: Documentation :: Sphinx",
+  "Topic :: Software Development :: Documentation",
+]
 packages = [{include = "sphinxcontrib"}]
 version = "0.0.0"
 
