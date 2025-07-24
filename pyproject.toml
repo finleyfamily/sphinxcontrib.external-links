@@ -53,7 +53,7 @@ sphinxcontrib-trio = "^1.1.2"
 
 [tool.poetry.group.lint.dependencies]
 black = "^25.1.0"
-ruff = "^0.12.4"
+ruff = "^0.12.5"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.4.1"
