@@ -37,9 +37,7 @@ class TestCaseInsensitiveMapping:
             ({}, {"key0": "data", "KeY1": "kwargs"}, {"key0": "data", "key1": "kwargs"}),
         ],
     )
-    def test___init__(
-        self, data: Mapping[str, str], expected: Mapping[str, str], kwargs: Mapping[str, str]
-    ) -> None:
+    def test___init__(self, data: Mapping[str, str], expected: Mapping[str, str], kwargs: Mapping[str, str]) -> None:
         """Test __init__."""
         result = CaseInsensitiveMapping(data, **kwargs)
         assert result._store == expected
@@ -53,9 +51,7 @@ class TestCaseInsensitiveMapping:
         """Test __hash__."""
         mock_frozenset = mocker.patch(f"{MODULE}.frozenset", return_value="frozenset")
         mock_hash = mocker.patch(f"{MODULE}.hash", return_value=9001)
-        items = mocker.patch.object(
-            CaseInsensitiveMapping, "items", return_value=iter({"key": "val"})
-        )
+        items = mocker.patch.object(CaseInsensitiveMapping, "items", return_value=iter({"key": "val"}))
         assert hash(CaseInsensitiveMapping(key="val")) == mock_hash.return_value
         mock_frozenset.assert_called_once_with(items.return_value)
         mock_hash.assert_called_once_with(mock_frozenset.return_value)
@@ -86,9 +82,7 @@ class TestCaseInsensitiveMapping:
     def test_find_value(self, expected: dict[str, str], pattern: re.Pattern[str] | str) -> None:
         """Test find_value."""
         assert (
-            CaseInsensitiveMapping(
-                {i: f"{i}-val" for i in ("foo", "foo.bar", "foo.baz", "bar", "bar.foo")}
-            )
+            CaseInsensitiveMapping({i: f"{i}-val" for i in ("foo", "foo.bar", "foo.baz", "bar", "bar.foo")})
             .find_value(pattern)
             ._store
             == expected

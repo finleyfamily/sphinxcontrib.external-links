@@ -32,9 +32,7 @@ class ExternalLinkChecker(SphinxPostTransform):
         if not self.config.external_links_detect_hardcoded_links:
             return
 
-        self._external_links = CaseInsensitiveMapping(
-            COMMON_LINKS, **self.app.config.external_links
-        )
+        self._external_links = CaseInsensitiveMapping(COMMON_LINKS, **self.app.config.external_links)
         for refnode in self.document.findall(reference):
             self.check_reference(refnode)
 
@@ -49,9 +47,7 @@ class ExternalLinkChecker(SphinxPostTransform):
         if "internal" in ref_node or "refuri" not in ref_node:
             return
 
-        matches = self._external_links.find_value(
-            re.compile(re.escape(ref_node["refuri"]) + r"?(/)$")
-        )
+        matches = self._external_links.find_value(re.compile(re.escape(ref_node["refuri"]) + r"?(/)$"))
         if not matches:
             return
 

@@ -41,9 +41,7 @@ def links_role(user_links: dict[str, str] | None = None) -> RoleFunction:
     ) -> tuple[list[Node], list[system_message]]:
         """Implement role."""
         _has_explicit_title, title, target = split_explicit_title(unescape(text))
-        node: Node = reference(
-            title, title, internal=False, refuri=_find_uri(links, target.lower())
-        )
+        node: Node = reference(title, title, internal=False, refuri=_find_uri(links, target.lower()))
         return [node], []
 
     return role_func
