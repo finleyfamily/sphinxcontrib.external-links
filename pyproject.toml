@@ -3,11 +3,8 @@ name = "sphinxcontrib.external-links"
 authors = [
   {email = "kyle@finley.sh", name = "Kyle Finley"},
 ]
-dependencies = [
-  "sphinx (>=7.2, <9)",
-]
 description = "Sphinx extension for easily adding reusable external links."
-dynamic = ["classifiers", "version"]
+dynamic = ["classifiers", "dependencies", "version"]
 keywords = [
   "documentation",
   "extension",
@@ -39,6 +36,9 @@ classifiers = [
 packages = [{include = "sphinxcontrib"}]
 version = "0.0.0"
 
+[tool.poetry.dependencies]
+sphinx = ">=7.2, <9"
+
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.2.0"
 
@@ -52,7 +52,6 @@ sphinxcontrib-jquery = "^4.1"
 sphinxcontrib-trio = "^1.1.2"
 
 [tool.poetry.group.lint.dependencies]
-black = "^25.1.0"
 ruff = "^0.12.7"
 
 [tool.poetry.group.test.dependencies]
@@ -62,22 +61,6 @@ pytest-mock = "^3.14.1"
 pytest-sugar = ">=1.0.0"
 pytest-xdist = {extras = ["psutil"], version = "^3.8.0"}
 sphinx = {extras = ["test"], version = ">=7.2,<9"}
-
-[tool.black]
-force-exclude = '''
-/(
-    \.eggs
-  | \.git
-  | \.venv
-  | _build
-  | build
-  | dist
-  | node_modules
-)/
-'''
-include = '\.pyi?$'
-line-length = 100
-target-version = ["py310", "py311", "py312", "py39"]
 
 [tool.coverage.report]
 exclude_lines = [
@@ -158,17 +141,13 @@ line-length = 120
 show-fixes = true
 target-version = "py39"
 
+[tool.ruff.format]  # https://docs.astral.sh/ruff/settings/#format
+docstring-code-format = true
+
 [tool.ruff.lint]  # https://docs.astral.sh/ruff/settings/#lint
 ignore = [
-  "COM812",  # Trailing comma missing
-  "D203",  # 1 blank line required before class docstring
-  "D213",  # Multi-line docstring summary should start at the second line
-  "D215",  # Section underline is over-indented
+  "COM812",  # Trailing comma missing  # NOTE (kyle): needs to be disabled when using formatter
   "D403",  # First word of the first line should be capitalized
-  "D406",  # Section name should end with a newline
-  "D407",  # Missing dashed underline after section
-  "D408",  # Section underline should be in the line following the section's name
-  "D409",  # Section underline should match the length of its name
   "ERA001",  # Found commented-out code  # NOTE (kyle): incorrectly detects cspell
   "FIX002",  # Line contains TODO
   "TD003",  # Missing issue link on the line following this TODO
@@ -183,7 +162,6 @@ select = ["ALL"]
 "tests/*" = [
   "FBT001",  # Boolean positional arg in function definition - this is fine here
   "FBT003",  # Boolean positional value in function call - this is fine here
-  "PT004",  # Fixture does not return anything, add leading underscore
   "S101",  # Use of `assert` detected - this is fine here
   "S108",  # Probable insecure usage of temporary file or directory
   "S604",  # Function call with `shell=True` parameter identified - this is fine here

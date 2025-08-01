@@ -35,9 +35,7 @@ def test_links_role(mocker: MockerFixture) -> None:
     unescape.assert_called_once_with("text")
     split_explicit_title.assert_called_once_with(unescape.return_value)
     find_uri.assert_called_once_with(links, "target")
-    reference.assert_called_once_with(
-        "title", "title", internal=False, refuri=find_uri.return_value
-    )
+    reference.assert_called_once_with("title", "title", internal=False, refuri=find_uri.return_value)
 
 
 def test_links_role_user_links(mocker: MockerFixture) -> None:
