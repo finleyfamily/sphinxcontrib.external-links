@@ -55,7 +55,7 @@ sphinxcontrib-trio = "^1.1.2"
 ruff = "^0.12.11"
 
 [tool.poetry.group.test.dependencies]
-pytest = "^8.4.1"
+pytest = "^8.4.2"
 pytest-cov = "^6.2.1"
 pytest-mock = "^3.14.1"
 pytest-sugar = ">=1.1.1"
