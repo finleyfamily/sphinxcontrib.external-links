@@ -52,7 +52,7 @@ sphinxcontrib-jquery = "^4.1"
 sphinxcontrib-trio = "^1.1.2"
 
 [tool.poetry.group.lint.dependencies]
-ruff = "^0.14.6"
+ruff = "^0.14.7"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.4.2"
