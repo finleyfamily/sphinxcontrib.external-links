@@ -1462,18 +1462,18 @@ test = ["pytest"]
 
 [[package]]
 name = "sphinxcontrib-trio"
-version = "1.1.2"
+version = "1.2.0"
 description = "Make Sphinx better at documenting Python functions and methods"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 groups = ["docs"]
 files = [
-    {file = "sphinxcontrib-trio-1.1.2.tar.gz", hash = "sha256:9f1ba9c1d5965b534e85258d8b677dd94e9b1a9a2e918b85ccd42590596b47c0"},
-    {file = "sphinxcontrib_trio-1.1.2-py3-none-any.whl", hash = "sha256:1b849be08a147ef4113e35c191a51c5792613a9a54697b497cd91656d906a232"},
+    {file = "sphinxcontrib_trio-1.2.0-py3-none-any.whl", hash = "sha256:46d69e06c5145f814ce43a8946212547bf6ba8605319dd422c393d63f6ad39f7"},
+    {file = "sphinxcontrib_trio-1.2.0.tar.gz", hash = "sha256:c3b2866bbf10993d10168eaaf54329ce8828b71263ebb06d2f1f02bae67c0bcd"},
 ]
 
 [package.dependencies]
-sphinx = ">=1.7"
+sphinx = ">=2.2"
 
 [[package]]
 name = "starlette"
@@ -1872,4 +1872,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.9, <4"
-content-hash = "3c60f00fdc8f72a36862ef99d41c30052d15387ead707c50bb057583b80713bb"
+content-hash = "bd034b50aeb9394e1585f593127396942b6d7d73c0ab8bd11aead2b735378eed"
