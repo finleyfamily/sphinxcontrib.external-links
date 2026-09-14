@@ -1,7 +1,7 @@
 [project]
 name = "sphinxcontrib.external-links"
 authors = [
-  {email = "kyle@finley.sh", name = "Kyle Finley"},
+  { email = "kyle@finley.sh", name = "Kyle Finley" },
 ]
 description = "Sphinx extension for easily adding reusable external links."
 dynamic = ["classifiers", "dependencies", "version"]
@@ -10,9 +10,9 @@ keywords = [
   "extension",
   "sphinx",
 ]
-license = {text = "Apache-2.0"}
+license = { text = "Apache-2.0" }
 maintainers = [
-  {email = "kyle@finley.sh", name = "Kyle Finley"},
+  { email = "kyle@finley.sh", name = "Kyle Finley" },
 ]
 requires-python = ">=3.9, <4"
 
@@ -33,7 +33,7 @@ classifiers = [
   "Topic :: Documentation :: Sphinx",
   "Topic :: Software Development :: Documentation",
 ]
-packages = [{include = "sphinxcontrib"}]
+packages = [{ include = "sphinxcontrib" }]
 version = "0.0.0"
 
 [tool.poetry.dependencies]
@@ -59,8 +59,8 @@ pytest = "^8.4.2"
 pytest-cov = "^7.1.0"
 pytest-mock = "^3.15.1"
 pytest-sugar = ">=1.1.1"
-pytest-xdist = {extras = ["psutil"], version = "^3.8.0"}
-sphinx = {extras = ["test"], version = ">=7.2,<9"}
+pytest-xdist = { extras = ["psutil"], version = "^3.8.0" }
+sphinx = { extras = ["test"], version = ">=7.2,<9" }
 
 [tool.coverage.report]
 exclude_lines = [
@@ -185,10 +185,10 @@ max-returns = 10
 [tool.tomlsort]
 all = true
 in_place = true
+overrides.project.first = ["name", "version"]
 sort_first = ["project", "tool", "tool.poetry"]
 spaces_before_inline_comment = 2
 trailing_comma_inline_array = true
-overrides.project.first = ["name", "version"]
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
